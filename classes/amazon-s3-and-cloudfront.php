@@ -1000,7 +1000,7 @@ class Amazon_S3_And_CloudFront extends AWS_Plugin_Base {
 	function get_s3_url_prefix( $region = '', $expires = null ) {
 		$prefix = 'storage';
 
-		if ( '' !== $region ) {
+		/*if ( '' !== $region ) {
 			$delimiter = '-';
 			if ( 'eu-central-1' == $region && ! is_null( $expires ) ) {
 				// if we are creating a secure URL for a Frankfurt base file use the alternative delimiter
@@ -1009,7 +1009,7 @@ class Amazon_S3_And_CloudFront extends AWS_Plugin_Base {
 			}
 
 			$prefix .= $delimiter . $region;
-		}
+        }*/
 
 		return $prefix;
 	}
@@ -1506,7 +1506,7 @@ class Amazon_S3_And_CloudFront extends AWS_Plugin_Base {
 			if ( $region ) {
 				$args = array(
 					'region'    => $this->translate_region( $region ),
-					'signature' => 'v4',
+					//'signature' => 'v4',
 				);
 			} else {
 				$args = array();
