@@ -21,12 +21,12 @@ $tr_class = ( isset( $tr_class ) ) ? $tr_class : ''; ?>
 			<label class="subdomain-wrap <?php echo $subdomain_class; // xss ok?>">
 				<input type="radio" name="domain" value="subdomain" <?php checked( $domain, 'subdomain' ); ?> <?php echo $subdomain_disabled; // xss ok ?>>
 				<?php _e( 'Bucket name as subdomain', 'amazon-s3-and-cloudfront' ); ?>
-				<p>http://bucket-name.s3.amazon.com/&hellip;</p>
+				<p>http://bucket-name.storage.googleapis.com/&hellip;</p>
 			</label>
 			<label>
 				<input type="radio" name="domain" value="path" <?php checked( $domain, 'path' ); ?>>
 				<?php _e( 'Bucket name in path', 'amazon-s3-and-cloudfront' ); ?>
-				<p>http://s3.amazon.com/bucket-name/&hellip;</p>
+				<p>http://storage.googleapis.com/bucket-name/&hellip;</p>
 			</label>
 			<label>
 				<input type="radio" name="domain" value="virtual-host" <?php checked( $domain, 'virtual-host' ); ?>>

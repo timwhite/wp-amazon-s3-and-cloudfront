@@ -55,7 +55,7 @@ class Amazon_S3_And_CloudFront extends AWS_Plugin_Base {
 	const DEFAULT_ACL = 'public-read';
 	const PRIVATE_ACL = 'private';
 	const DEFAULT_EXPIRES = 900;
-	const DEFAULT_REGION = 'us-east-1';
+	const DEFAULT_REGION = 'global';
 
 	const SETTINGS_KEY = 'tantan_wordpress_s3';
 
@@ -998,7 +998,7 @@ class Amazon_S3_And_CloudFront extends AWS_Plugin_Base {
 	 * @return string
 	 */
 	function get_s3_url_prefix( $region = '', $expires = null ) {
-		$prefix = 's3';
+		$prefix = 'storage';
 
 		if ( '' !== $region ) {
 			$delimiter = '-';
@@ -1046,10 +1046,10 @@ class Amazon_S3_And_CloudFront extends AWS_Plugin_Base {
 			$s3_domain = $bucket;
 		}
 		elseif ( 'path' === $args['domain'] || $this->use_ssl( $args['ssl'] ) ) {
-			$s3_domain = $prefix . '.amazonaws.com/' . $bucket;
+			$s3_domain = $prefix . '.googleapis.com/' . $bucket;
 		}
 		else {
-			$s3_domain = $bucket . '.' . $prefix . '.amazonaws.com';
+			$s3_domain = $bucket . '.' . $prefix . '.googleapis.com';
 		}
 
 		return $s3_domain;
